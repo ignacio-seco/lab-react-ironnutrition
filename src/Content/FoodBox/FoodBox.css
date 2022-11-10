@@ -1,0 +1,18 @@
+.boldStyle{
+    font-weight: 700;
+}
+.ant-card-head-title{
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 10%;
+}
+.FoodsCardsDiv{
+    display: flex;
+    flex-direction: column;
+}
+.hide{display:none;
+visibility: hidden;}
+
+
+

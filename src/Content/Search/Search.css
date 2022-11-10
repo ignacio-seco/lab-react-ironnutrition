@@ -1,0 +1,12 @@
+.searchBarr{
+    width: 60% !important;;
+}
+.searchStyle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
