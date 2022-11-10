@@ -45,49 +45,61 @@ function FoodBox(props) {
     );
     setSearchMecanism(searchedFood);
   };
-  const renderFoodCards = searchMecanism.map((element, index) => {
-    return (
-      <Col key={`${index}`}>
-        <div className="site-card-border-less-wrapper" key={index}>
-          <Card
-            key={`${index}`}
-            title={element.name}
-            bordered={false}
-            style={{ width: 300 }}
-          >
+  let renderFoodCards;
+  if (searchMecanism.length > 0) {
+    renderFoodCards = searchMecanism.map((element, index) => {
+      return (
+        <Col key={`${index}`}>
+          <div className="site-card-border-less-wrapper" key={index}>
             <Card
-              hoverable
-              style={{ width: 240 }}
-              cover={
-                <img alt="food" src={element.image} className="cardImage" />
-              }
-            ></Card>
-            <p>
-              Calories:{' '}
-              <span className="boldStyle">{`${element.calories}`}</span>
-            </p>
-            <p>
-              Servings:{' '}
-              <span className="boldStyle">{`${element.servings}`}</span>
-            </p>
-            <p>
-              <span className="boldStyle">{`Total Calories: ${
-                Number(element.servings) * Number(element.calories)
-              } `}</span>
-              kcal
-            </p>
-            <Button
-              type="primary"
-              key={index}
-              onClick={(event) => deleteFood(index)}
+              key={`${index}`}
+              title={element.name}
+              bordered={false}
+              style={{ width: 300 }}
             >
-              Delete
-            </Button>
-          </Card>
+              <Card
+                hoverable
+                style={{ width: 240 }}
+                cover={
+                  <img alt="food" src={element.image} className="cardImage" />
+                }
+              ></Card>
+              <p>
+                Calories:{' '}
+                <span className="boldStyle">{`${element.calories}`}</span>
+              </p>
+              <p>
+                Servings:{' '}
+                <span className="boldStyle">{`${element.servings}`}</span>
+              </p>
+              <p>
+                <span className="boldStyle">{`Total Calories: ${
+                  Number(element.servings) * Number(element.calories)
+                } `}</span>
+                kcal
+              </p>
+              <Button
+                type="primary"
+                key={index}
+                onClick={(event) => deleteFood(index)}
+              >
+                Delete
+              </Button>
+            </Card>
+          </div>
+        </Col>
+      );
+    });
+  } else {
+    renderFoodCards = (
+      <Col span={24}>
+        <div className="alertMessage">
+          <p>There is nothing to see here!</p>
+          <span>∅</span>
         </div>
       </Col>
     );
-  });
+  }
   return (
     <div>
       <div className={hide}>

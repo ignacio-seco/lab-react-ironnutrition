@@ -14,5 +14,20 @@
 .hide{display:none;
 visibility: hidden;}
 
+.alertMessage p{
+    font-size: 5rem;
 
+}
+.alertMessage span{
+    font-size: 10rem;
+
+}
+.alertMessage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
 
